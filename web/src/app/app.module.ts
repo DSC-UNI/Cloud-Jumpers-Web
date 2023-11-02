@@ -15,7 +15,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { DoctorComponent } from './components/doctor/doctor.component';
 import { CrearHistoriaComponent } from './components/crear-historia/crear-historia.component';
-import { BuscarHistoriaComponent } from './components/buscar-historia/buscar-historia.component'
+import { BuscarHistoriaComponent } from './components/buscar-historia/buscar-historia.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { BuscarHistoriaComponent } from './components/buscar-historia/buscar-his
     //conexión al backend por API
     HttpClientModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

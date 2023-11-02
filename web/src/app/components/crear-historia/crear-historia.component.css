@@ -5,4 +5,5 @@
 }
 .form-group p{
     color: red;
+    resize: vertical;
 }

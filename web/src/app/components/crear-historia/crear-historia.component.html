@@ -9,42 +9,41 @@
 
         <label for="created_at">Fecha:</label>
         <input type="date" id="created_at" formControlName="created_at">
-        <div *ngIf="historiaForm.get('created_at')?.hasError('required')">
+        <div *ngIf="historiaForm.get('created_at')?.touched && historiaForm.get('created_at')?.hasError('required')">
           <p>La fecha es obligatoria.</p>
         </div>
 
         <label for="antecedentes_patologicos">Antecedentes patológicos que padece el paciente:</label>
         <input type="text" id="antecedentes_patologicos" formControlName="antecedentes_patologicos">
-        <span class="warning" *ngIf="historiaForm.get('antecedentes_patologicos')?.hasError('required')">
+        <span class="warning" *ngIf="historiaForm.get('antecedentes_patologicos')?.touched && historiaForm.get('antecedentes_patologicos')?.hasError('required')">
             <p>Completar esta pregunta es obligatorio.</p>
         </span>
         
 
         <label for="antecedentes_quirurgicos">Antecedentes Quirurgicos:</label>
         <input type="text" id="antecedentes_quirurgicos" formControlName="antecedentes_quirurgicos">
-        <span class="warning" *ngIf="historiaForm.get('antecedentes_quirurgicos')?.hasError('required')">
+        <span class="warning" *ngIf="historiaForm.get('antecedentes_quirurgicos')?.touched && historiaForm.get('antecedentes_quirurgicos')?.hasError('required')">
             <p>Completar esta pregunta es obligatorio.</p>
         </span>
 
         <label for="rams">Alergia a Medicamentos:</label>
         <input type="text" id="rams" formControlName="rams">
-        <span class="warning" *ngIf="historiaForm.get('rams')?.hasError('required')">
+        <span class="warning" *ngIf="historiaForm.get('rams')?.touched && historiaForm.get('rams')?.hasError('required')">
             <p>Completar esta pregunta es obligatorio.</p>
         </span>
 
         <label for="relato_cronologico">Relato Cronológico:</label>
         <input type="text" id="relato_cronologico" formControlName="relato_cronologico">
-        <span class="warning" *ngIf="historiaForm.get('relato_cronologico')?.hasError('required')">
+        <span class="warning" *ngIf="historiaForm.get('relato_cronologico')?.touched && historiaForm.get('relato_cronologico')?.hasError('required')">
             <p>Completar esta pregunta es obligatorio.</p>
         </span>
 
         <label for="plan">Decisiones:</label>
         <input type="text" id="plan" formControlName="plan">
-        <span class="warning" *ngIf="historiaForm.get('plan')?.hasError('required')">
+        <span class="warning" *ngIf="historiaForm.get('plan')?.touched && historiaForm.get('plan')?.hasError('required')">
             <p>Completar esta pregunta es obligatorio.</p>
         </span>
     </div>
 
     <button [disabled]="myForm.invalid" type="submit">Enviar Formulario</button>
-
 </form>

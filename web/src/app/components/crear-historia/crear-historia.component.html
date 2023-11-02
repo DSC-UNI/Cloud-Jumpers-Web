@@ -1,32 +1,55 @@
-<!-- <h1>Formulario de Inscripción</h1>
-<form (ngSubmit)="onRegister()" #myForm="ngForm">
-  <div class="input-register">
-    <label for="name">Name</label>
-    <input type="text" name="name" required id="name" [(ngModel)]="register.name">
-    <p>Mensaje de Error</p>
-  </div>
-  <div class="input-register">
-    <label for="university">University</label>
-    <input type="text" name="university" required id="university" [(ngModel)]="register.university">
-    <p>Mensaje de Error</p>
-  </div>
-  <div class="input-register">
-    <label for="age">Age</label>
-    <input type="number" name="age" required id="age" [(ngModel)]="register.age">
-    <p>Mensaje de Error</p>
-  </div>
-  <div class="input-register">
-    <label for="email">Email</label>
-    <input type="email" name="email" required id="email" [(ngModel)]="register.email">
-    <p>Mensaje de Error</p>
-  </div>
-  <div class="input-register">
-    <label for="password">Password</label>
-    <input type="password" name="password" required id="password" [(ngModel)]="register.password">
-    <p>Mensaje de Error</p>
-  </div>
+<form [formGroup]="historiaForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
 
-  <button [disabled]="myForm.invalid" type="submit">Enviar Formulario</button>
-  <button type="button">Other Action</button>
-</form> -->
-<p>hola</p>
+        <label for="dni">DNI:</label>
+        <input type="text" id="dni" formControlName="dni">
+        <div *ngIf="historiaForm.get('dni')?.hasError('pattern')">
+            <p>El DNI debe tener 8 dígitos.</p>
+        </div>
+
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" formControlName="fecha">
+        <div *ngIf="historiaForm.get('fecha')?.hasError('required')">
+          <p>La fecha es obligatoria.</p>
+        </div>
+
+        <label for="pregunta1">Antecedentes patológicos que padece el paciente:</label>
+        <input type="text" id="pregunta1" formControlName="pregunta1">
+        <span class="warning" *ngIf="historiaForm.get('pregunta1')?.hasError('required')">
+            <p>Completar esta pregunta es obligatorio.</p>
+        </span>
+        
+
+        <label for="pregunta2">Antecedentes Quirurgicos:</label>
+        <input type="text" id="pregunta2" formControlName="pregunta2">
+        <span class="warning" *ngIf="historiaForm.get('pregunta2')?.hasError('required')">
+            <p>Completar esta pregunta es obligatorio.</p>
+        </span>
+
+        <label for="pregunta3">Alergia a Medicamentos:</label>
+        <input type="text" id="pregunta3" formControlName="pregunta3">
+        <span class="warning" *ngIf="historiaForm.get('pregunta3')?.hasError('required')">
+            <p>Completar esta pregunta es obligatorio.</p>
+        </span>
+
+        <label for="pregunta4">Relato Cronológico:</label>
+        <input type="text" id="pregunta4" formControlName="pregunta4">
+        <span class="warning" *ngIf="historiaForm.get('pregunta4')?.hasError('required')">
+            <p>Completar esta pregunta es obligatorio.</p>
+        </span>
+
+        <label for="pregunta5">Decisiones:</label>
+        <input type="text" id="pregunta5" formControlName="pregunta5">
+        <span class="warning" *ngIf="historiaForm.get('pregunta5')?.hasError('required')">
+            <p>Completar esta pregunta es obligatorio.</p>
+        </span>
+
+        <label for="pregunta6">Debe dejar algún medicamento?:</label>
+        <input type="text" id="pregunta6" formControlName="pregunta6">
+        <span class="warning" *ngIf="historiaForm.get('pregunta6')?.hasError('required')">
+            <p>Completar esta pregunta es obligatorio.</p>
+        </span>
+    </div>
+
+    <button type="submit">Enviar</button>
+</form>

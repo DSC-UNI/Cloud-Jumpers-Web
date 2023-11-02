@@ -18,5 +18,6 @@ export class HomeComponent implements OnInit {
     data => this.obj = data
   )
   }
+  
 }
 

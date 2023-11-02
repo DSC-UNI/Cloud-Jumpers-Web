@@ -1,2 +1,9 @@
 <p>home works!</p>
-<h3>{{obj|json}}</h3>
+
+<div>
+    <div *ngFor="let usuario of obj; let i = index">
+        <p>Nombre {{ i + 1 }}: {{ usuario.id }}</p>
+        <p>Edad {{ i + 1 }}: {{ usuario.title }}</p>
+        <p>Email {{ i + 1 }}: {{ usuario.description }}</p>
+      </div>
+</div>

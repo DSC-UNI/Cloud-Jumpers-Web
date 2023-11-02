@@ -10,7 +10,10 @@ import { AppRoutingModule } from './app-routing.module';
 
 //conexión al backend por API
 
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { DoctorComponent } from './components/doctor/doctor.component';
+import { CrearHistoriaComponent } from './components/crear-historia/crear-historia.component';
+import { BuscarHistoriaComponent } from './components/buscar-historia/buscar-historia.component'
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { HttpClientModule } from '@angular/common/http'
     HomeComponent,
     ChatbotComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    DoctorComponent,
+    CrearHistoriaComponent,
+    BuscarHistoriaComponent
   ],
   imports: [
     BrowserModule,

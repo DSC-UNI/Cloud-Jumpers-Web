@@ -2,8 +2,11 @@
 
 <div>
     <div *ngFor="let usuario of obj; let i = index">
-        <p>Nombre {{ i + 1 }}: {{ usuario.id }}</p>
-        <p>Edad {{ i + 1 }}: {{ usuario.title }}</p>
-        <p>Email {{ i + 1 }}: {{ usuario.description }}</p>
+        <p>DNI {{ i + 1 }}: {{ usuario.dni }}</p>
+        <p>Antecedentes patologicos {{ i + 1 }}: {{ usuario.antecedentes_patologicos }}</p>
+        <p>Antecedentes quirurgicos {{ i + 1 }}: {{ usuario.antecedentes_quirurgicos }}</p>
+        <p>RAMS {{ i + 1 }}: {{ usuario.rams }}</p>
+        <p>Plan {{ i + 1 }}: {{ usuario.plan }}</p>
+        <p>Fecha {{ i + 1 }}: {{ usuario.created_at }}</p>
       </div>
 </div>

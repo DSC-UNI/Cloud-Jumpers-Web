@@ -11,13 +11,24 @@ import { HttpClient } from '@angular/common/http';
 
 
 export class HomeComponent implements OnInit {
-  constructor(private http:HttpClient) { }
-  obj :any;
-  ngOnInit(): void {
-  this.obj = this.http.get("http://localhost:8000/api/projects/").subscribe(
-    data => this.obj = data
-  )
-  }
   
+  obj :any;
+
+  formData: any = {};
+
+  constructor(private http:HttpClient) { }
+
+  ngOnInit(): void {
+    //método para llamar a las historias clínicas
+    this.getStories();
+  }
+
+  getStories() {
+    this.http.get("http://localhost:8000/api/projects/").subscribe(
+      (data: any) => {
+        this.obj = data;
+      }
+    );
+  }
 }
 

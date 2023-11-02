@@ -7,46 +7,40 @@
             <p>El DNI debe tener 8 dígitos.</p>
         </div>
 
-        <label for="fecha">Fecha:</label>
-        <input type="date" id="fecha" formControlName="fecha">
-        <div *ngIf="historiaForm.get('date')?.touched && historiaForm.get('fecha')?.hasError('required')">
+        <label for="created_at">Fecha:</label>
+        <input type="date" id="created_at" formControlName="created_at">
+        <div *ngIf="historiaForm.get('created_at')?.hasError('required')">
           <p>La fecha es obligatoria.</p>
         </div>
 
-        <label for="pregunta1">Antecedentes patológicos que padece el paciente:</label>
-        <input type="text" id="pregunta1" formControlName="pregunta1">
-        <span class="warning" *ngIf="historiaForm.get('pregunta1')?.touched && historiaForm.get('pregunta1')?.hasError('required')">
+        <label for="antecedentes_patologicos">Antecedentes patológicos que padece el paciente:</label>
+        <input type="text" id="antecedentes_patologicos" formControlName="antecedentes_patologicos">
+        <span class="warning" *ngIf="historiaForm.get('antecedentes_patologicos')?.hasError('required')">
             <p>Completar esta pregunta es obligatorio.</p>
         </span>
         
 
-        <label for="pregunta2">Antecedentes Quirurgicos:</label>
-        <input type="text" id="pregunta2" formControlName="pregunta2">
-        <span class="warning" *ngIf="historiaForm.get('pregunta2')?.touched && historiaForm.get('pregunta2')?.hasError('required')">
+        <label for="antecedentes_quirurgicos">Antecedentes Quirurgicos:</label>
+        <input type="text" id="antecedentes_quirurgicos" formControlName="antecedentes_quirurgicos">
+        <span class="warning" *ngIf="historiaForm.get('antecedentes_quirurgicos')?.hasError('required')">
             <p>Completar esta pregunta es obligatorio.</p>
         </span>
 
-        <label for="pregunta3">Alergia a Medicamentos:</label>
-        <input type="text" id="pregunta3" formControlName="pregunta3">
-        <span class="warning" *ngIf="historiaForm.get('pregunta3')?.touched && historiaForm.get('pregunta3')?.hasError('required')">
+        <label for="rams">Alergia a Medicamentos:</label>
+        <input type="text" id="rams" formControlName="rams">
+        <span class="warning" *ngIf="historiaForm.get('rams')?.hasError('required')">
             <p>Completar esta pregunta es obligatorio.</p>
         </span>
 
-        <label for="pregunta4">Relato Cronológico:</label>
-        <input type="text" id="pregunta4" formControlName="pregunta4">
-        <span class="warning" *ngIf="historiaForm.get('pregunta4')?.touched && historiaForm.get('pregunta4')?.hasError('required')">
+        <label for="relato_cronologico">Relato Cronológico:</label>
+        <input type="text" id="relato_cronologico" formControlName="relato_cronologico">
+        <span class="warning" *ngIf="historiaForm.get('relato_cronologico')?.hasError('required')">
             <p>Completar esta pregunta es obligatorio.</p>
         </span>
 
-        <label for="pregunta5">Decisiones:</label>
-        <input type="text" id="pregunta5" formControlName="pregunta5">
-        <span class="warning" *ngIf="historiaForm.get('pregunta5')?.touched && historiaForm.get('pregunta5')?.hasError('required')">
-            <p>Completar esta pregunta es obligatorio.</p>
-        </span>
-
-        <label for="pregunta6">Debe dejar algún medicamento?:</label>
-        <input type="text" id="pregunta6" formControlName="pregunta6">
-        <span class="warning" *ngIf="historiaForm.get('pregunta6')?.touched && historiaForm.get('pregunta6')?.hasError('required')">
+        <label for="plan">Decisiones:</label>
+        <input type="text" id="plan" formControlName="plan">
+        <span class="warning" *ngIf="historiaForm.get('plan')?.hasError('required')">
             <p>Completar esta pregunta es obligatorio.</p>
         </span>
     </div>

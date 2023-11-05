@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-crear-historia',
   templateUrl: './crear-historia.component.html',
-  styleUrls: ['./crear-historia.component.css']
+  styleUrls: ['./crear-historia.component.scss']
 })
 
 export class CrearHistoriaComponent implements OnInit {

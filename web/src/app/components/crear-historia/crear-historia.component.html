@@ -1,49 +1,111 @@
-<form [formGroup]="historiaForm" (ngSubmit)="onSubmit()" #myForm="ngForm">
-    <div class="form-group">
+<div class="row">
+    <div class="col s12">
+        <div class="row card-panel">
 
-        <label for="dni">DNI:</label>
-        <input type="text" id="dni" formControlName="dni">
-        <div *ngIf="historiaForm.get('dni')?.touched && historiaForm.get('dni')?.hasError('pattern')">
-            <p>El DNI debe tener 8 dígitos.</p>
+            <form [formGroup]="formPatient" (ngSubmit)="onSubmit()">
+                <div class="input-field col s12">
+                    <input type="number" formControlName="patient_dni" placeholder="Ingrese el DNI" id="dni">
+
+                    <label for="dni">
+                        DNI
+                    </label>
+
+                    <div class="red-text text-darken-1" [hidden]="patient_dni?.valid || patient_dni?.pristine">
+                        
+                        <span *ngIf="patient_dni?.errors?.['required']">
+                            Este campo es obligatorio
+                        </span>
+
+                        <span *ngIf="patient_dni?.errors?.['min']|| patient_dni?.errors?.['max']">
+                            Inserte correctamente el número de DNI
+                        </span>
+                    </div>
+                </div>
+
+                <div class="input-field col s12">
+                    <input type="date" formControlName="patient_date" placeholder="Ingrese fecha" id="date" min="1950-01-01" max="2030-12-31">
+
+                    <label for="date">
+                        Fecha
+                    </label>
+
+                    <div class="red-text text-darken-1" [hidden]="patient_date?.valid || patient_date?.pristine">
+                        Este campo es obligatorio
+                    </div>
+                    
+                </div>
+
+                <div class="input-field col s12">
+                    <textarea type="text" formControlName="patient_pathological_history" placeholder="Ingrese información" class="materialize-textarea"></textarea>
+
+                    <label>
+                        Antecedentes patológicos
+                    </label>
+
+                    <div class="red-text text-darken-1" [hidden]="patient_pathological_history?.valid || patient_pathological_history?.pristine">
+                        Este campo es obligatorio
+                    </div>
+
+                </div>
+
+                <div class="input-field col s12">
+                    <textarea type="text" formControlName="patient_surgical_history" placeholder="Ingrese información" class="materialize-textarea"></textarea>
+
+                    <label>
+                        Antecedentes Quirurgicos
+                    </label>
+
+                    <div class="red-text text-darken-1" [hidden]="patient_surgical_history?.valid || patient_surgical_history?.pristine">
+                        Este campo es obligatorio
+                    </div>
+                </div>
+
+                <div class="input-field col s12">
+                    <textarea type="text" formControlName="patient_rams" placeholder="Ingrese información" class="materialize-textarea"></textarea>
+
+                    <label>
+                        Alergia a Medicamentos
+                    </label>
+
+                    <div class="red-text text-darken-1" [hidden]="patient_rams?.valid || patient_rams?.pristine">
+                        Este campo es obligatorio
+                    </div>
+                </div>
+
+                <div class="input-field col s12">
+                    <textarea type="text" formControlName="patient_chronological_relation" placeholder="Ingrese información" class="materialize-textarea"></textarea>
+
+                    <label>
+                        Relato Cronológico
+                    </label>
+
+                    <div class="red-text text-darken-1" [hidden]="patient_chronological_relation?.valid || patient_chronological_relation?.pristine">
+                        Este campo es obligatorio
+                    </div>
+                </div>
+
+                <div class="input-field col s12">
+                    <textarea type="text" formControlName="patient_plan" placeholder="Ingrese información" class="materialize-textarea"></textarea>
+
+                    <label>
+                        Decisiones
+                    </label>
+
+                    <div class="red-text text-darken-1" [hidden]="patient_plan?.valid || patient_plan?.pristine">
+                        Este campo es obligatorio
+                    </div>
+                </div>
+
+
+                <button class="btn waves-effect light-blue accent-3" [disabled]='formPatient.invalid'>
+                    Enviar
+                    <i class="material-icons right">send</i>
+                </button>
+            </form>
+
         </div>
 
-        <label for="created_at">Fecha:</label>
-        <input type="date" id="created_at" formControlName="created_at">
-        <div *ngIf="historiaForm.get('created_at')?.touched && historiaForm.get('created_at')?.hasError('required')">
-          <p>La fecha es obligatoria.</p>
-        </div>
-
-        <label for="antecedentes_patologicos">Antecedentes patológicos que padece el paciente:</label>
-        <input type="text" id="antecedentes_patologicos" formControlName="antecedentes_patologicos">
-        <span class="warning" *ngIf="historiaForm.get('antecedentes_patologicos')?.touched && historiaForm.get('antecedentes_patologicos')?.hasError('required')">
-            <p>Completar esta pregunta es obligatorio.</p>
-        </span>
-        
-
-        <label for="antecedentes_quirurgicos">Antecedentes Quirurgicos:</label>
-        <input type="text" id="antecedentes_quirurgicos" formControlName="antecedentes_quirurgicos">
-        <span class="warning" *ngIf="historiaForm.get('antecedentes_quirurgicos')?.touched && historiaForm.get('antecedentes_quirurgicos')?.hasError('required')">
-            <p>Completar esta pregunta es obligatorio.</p>
-        </span>
-
-        <label for="rams">Alergia a Medicamentos:</label>
-        <input type="text" id="rams" formControlName="rams">
-        <span class="warning" *ngIf="historiaForm.get('rams')?.touched && historiaForm.get('rams')?.hasError('required')">
-            <p>Completar esta pregunta es obligatorio.</p>
-        </span>
-
-        <label for="relato_cronologico">Relato Cronológico:</label>
-        <input type="text" id="relato_cronologico" formControlName="relato_cronologico">
-        <span class="warning" *ngIf="historiaForm.get('relato_cronologico')?.touched && historiaForm.get('relato_cronologico')?.hasError('required')">
-            <p>Completar esta pregunta es obligatorio.</p>
-        </span>
-
-        <label for="plan">Decisiones:</label>
-        <input type="text" id="plan" formControlName="plan">
-        <span class="warning" *ngIf="historiaForm.get('plan')?.touched && historiaForm.get('plan')?.hasError('required')">
-            <p>Completar esta pregunta es obligatorio.</p>
-        </span>
     </div>
+</div>
 
-    <button [disabled]="myForm.invalid" type="submit">Enviar Formulario</button>
-</form>
+{{formPatient.value|json}}

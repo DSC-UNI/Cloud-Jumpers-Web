@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -9,39 +9,60 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class CrearHistoriaComponent implements OnInit {
-  historiaForm: FormGroup;
-
-  formData: any = {};
-
+  
   constructor(private fb: FormBuilder, private http: HttpClient) {
-    this.historiaForm = this.fb.group({
-      dni: new FormControl('', [
-        Validators.required,
-        Validators.pattern('^[0-9]{8}$')
-      ]),
-      created_at: new FormControl(null, Validators.required),
-      antecedentes_patologicos: new FormControl(null, Validators.required),
-      antecedentes_quirurgicos: new FormControl('', Validators.required),
-      rams: new FormControl('', Validators.required),
-      relato_cronologico: new FormControl('', Validators.required),
-      plan: new FormControl('', Validators.required),
-    });
+
   }
+  
+  get patient_dni(){
+    return this.formPatient.get('patient_dni');
+  }
+  get patient_date(){
+    return this.formPatient.get('patient_date');
+  }
+  get patient_pathological_history(){
+    return this.formPatient.get('patient_pathological_history');
+  }
+  get patient_surgical_history(){
+    return this.formPatient.get('patient_surgical_history');
+  }
+  get patient_rams(){
+    return this.formPatient.get('patient_rams');
+  }
+  get patient_chronological_relation(){
+    return this.formPatient.get('patient_chronological_relation');
+  }
+  get patient_plan(){
+    return this.formPatient.get('patient_plan');
+  }
+
+  formPatient = this.fb.group({
+    'patient_dni':['',[Validators.required, Validators.min(10000000),Validators.max(99999999)]],
+    'patient_date': ['',Validators.required],
+    'patient_pathological_history':['', Validators.required],
+    'patient_surgical_history':['', Validators.required],
+    'patient_rams':['', Validators.required],
+    'patient_chronological_relation':['', Validators.required],
+    'patient_plan':['', Validators.required],
+  });
+
 
   ngOnInit(): void {
   }
 
+  formData: any = {};
+
   async onSubmit() {
-    if (this.historiaForm.valid) {
+    if (this.formPatient.valid) {
 
       this.formData = {
-        dni: this.historiaForm.get('dni')?.value,
-        created_at: this.historiaForm.get('created_at')?.value,
-        antecedentes_patologicos: this.historiaForm.get('antecedentes_patologicos')?.value,
-        antecedentes_quirurgicos: this.historiaForm.get('antecedentes_quirurgicos')?.value,
-        rams: this.historiaForm.get('rams')?.value,
-        relato_cronologico: this.historiaForm.get('relato_cronologico')?.value,
-        plan: this.historiaForm.get('plan')?.value,
+        patient_dni: this.formPatient.get('dni')?.value,
+        patient_date: this.formPatient.get('patient_date')?.value,
+        patient_pathological_history: this.formPatient.get('pathological_history')?.value,
+        patient_surgical_history: this.formPatient.get('surgical_history')?.value,
+        patient_rams: this.formPatient.get('rams')?.value,
+        patient_chronological_relation: this.formPatient.get('chronological_relation')?.value,
+        patient_plan: this.formPatient.get('plan')?.value,
       }
 
       try {

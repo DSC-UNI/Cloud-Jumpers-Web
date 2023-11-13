@@ -24,8 +24,23 @@
 
 <body>
   <script>
+    var currYear = (new Date()).getFullYear();
+
     $(document).ready(function () {
       $('.sidenav').sidenav();
+      $('.datepicker').datepicker({ 
+            firstDay: true, 
+            format: 'dd-mm-yyyy',
+            i18n: {
+                months: ["Ene.", "Feb.", "Mar.", "Abr.", "May.", "Jun.", "Jul.", "Ago.", "Set.", "Oct.", "Nov.", "Dic."],
+                monthsShort: ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Set", "Oct", "Nov", "Dic"],
+                weekdays: ["Domingo","Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
+                weekdaysShort: ["Dom","Lun", "Mar", "Mie", "Jue", "Vie", "Sab"],
+                weekdaysAbbrev: ["D","L", "M", "M", "J", "V", "S"]
+
+            }
+        });
+        $('#textarea1').val('New Text');
     });
   </script>
   <app-root></app-root>

@@ -65,12 +65,14 @@ export class CrearHistoriaComponent implements OnInit {
         patient_plan: this.formPatient.get('plan')?.value,
       }
 
-      try {
-        const response = await this.http.post("http://localhost:8000/api/projects/", this.formData).toPromise();
-        console.log("datos enviados con exito", response);
-      } catch (error) {
-        console.error("error al enviar los datos", error);
-      }
+      console.log(this.formPatient.value);
+
+      // try {
+      //   const response = await this.http.post("http://localhost:8000/api/projects/", this.formData).toPromise();
+      //   console.log("datos enviados con exito", response);
+      // } catch (error) {
+      //   console.error("error al enviar los datos", error);
+      // }
 
     }
   }

@@ -1,19 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/users/authentication.service';
+import { LoginRequest } from 'src/app/users/loginRequest';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
   
   public formLogin!: FormGroup;
 
-  constructor(private fb:FormBuilder){
-
-  }
+  constructor(private fb:FormBuilder, private login_auth_service:AuthenticationService, private router:Router){
+  } 
 
   ngOnInit(): void {
     this.formLogin = this.createformLogin();
@@ -30,15 +32,27 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  public login(){
+  public loguear(){
 
-    if(this.formLogin.invalid){
-      alert(" formulario invalido");
-      return;
+    if(this.formLogin.valid){
+      this.login_auth_service.ingresarApp(this.formLogin.value).subscribe({
+        next: (userData) =>{
+          console.log(userData);
+        },
+        error: (errorData) =>{
+          console.error(errorData);
+        },
+        complete: () => {
+          console.info("Login Completo")
+        }
+      });
+      this.router.navigateByUrl('/doctor');  
     }
 
-    alert("Logear")
-    console.log(this.formLogin.value);
+    else{
+      alert("error al ingresar datos")
+    }
+    
   }
 
 }

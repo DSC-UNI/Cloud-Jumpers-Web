@@ -16,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { DoctorComponent } from './components/doctor/doctor.component';
 import { CrearHistoriaComponent } from './components/crear-historia/crear-historia.component';
 import { BuscarHistoriaComponent } from './components/buscar-historia/buscar-historia.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './public/login/login.component'
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     NavbarComponent,
     DoctorComponent,
     CrearHistoriaComponent,
-    BuscarHistoriaComponent
+    BuscarHistoriaComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import { ChatbotComponent } from './components/chatbot/chatbot.component';
 import { DoctorComponent } from './components/doctor/doctor.component';
 import { BuscarHistoriaComponent } from './components/buscar-historia/buscar-historia.component';
 import { CrearHistoriaComponent } from './components/crear-historia/crear-historia.component';
+import { LoginComponent } from './public/login/login.component';
 
 
 
@@ -21,6 +22,7 @@ const routes: Routes= [
       { path: 'buscar-historia', component: BuscarHistoriaComponent },
     ],
   },
+  {path:"login", component:LoginComponent},
 ]
 
 @NgModule({

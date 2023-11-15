@@ -5,7 +5,8 @@
         <ul class="right hide-on-med-and-down" id="seccion">
         <li><a href="/home">Home</a></li>
         <li><a href="/chatbot">ChatBot</a></li>
-        <li><a href="/login">Doctor</a></li>
+        <li *ngIf="!userLoginOn"><a href="/login">Iniciar Sesión</a></li>
+        <li *ngIf="userLoginOn"><a href="/login">Cerrar Sesión</a></li>
       </ul>
     </div>
   </nav>
@@ -13,5 +14,6 @@
   <ul class="sidenav" id="mobile-demo">
     <li><a href="/home">Home</a></li>
     <li><a href="/chatbot">ChatBot</a></li>
-    <li><a href="/login">Doctor</a></li>
+    <li *ngIf="!userLoginOn"><a href="/login">Iniciar Sesión</a></li>
+    <li *ngIf="userLoginOn"><a href="/login">Cerrar Sesión</a></li>
   </ul>

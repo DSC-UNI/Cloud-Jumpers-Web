@@ -11,6 +11,7 @@ import { LoginRequest } from 'src/app/users/loginRequest';
 })
 
 export class LoginComponent implements OnInit {
+  loginError:string='';
 
   formLogin= this.fb.group({
     user:['luis@gmail.com',[Validators.required, Validators.email]],
@@ -36,12 +37,13 @@ export class LoginComponent implements OnInit {
         },
         error: (errorData) => {
           console.error(errorData);
+          this.loginError=errorData;
         },
         complete: () => {
-          console.info("Login Complete")
+          console.info("Login Complete");
+          this.router.navigateByUrl('/doctor'); 
         }
-      });
-      this.router.navigateByUrl('/doctor');  
+      }); 
     }
 
     else{

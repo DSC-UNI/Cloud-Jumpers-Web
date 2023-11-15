@@ -17,7 +17,7 @@ import { LoginComponent } from './public/login/login.component'
 /// Rutas
 import { AppRoutingModule } from './app-routing.module';
 
-//conexión al backend por API
+//conexión al backend por API 
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({

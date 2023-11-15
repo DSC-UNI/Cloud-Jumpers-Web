@@ -11,39 +11,34 @@ import { LoginRequest } from 'src/app/users/loginRequest';
 })
 
 export class LoginComponent implements OnInit {
-  
-  public formLogin!: FormGroup;
+
+  formLogin= this.fb.group({
+    user:['luis@gmail.com',[Validators.required, Validators.email]],
+    password:['', [Validators.required]]
+  })
 
   constructor(private fb:FormBuilder, private login_auth_service:AuthenticationService, private router:Router){
   } 
 
   ngOnInit(): void {
-    this.formLogin = this.createformLogin();
   }
 
   get login_user(){
     return this.formLogin.get('user');
   }
 
-  private createformLogin():FormGroup{
-    return this.fb.group({
-      user:['',[Validators.required, Validators.email]],
-      password:[]
-    });
-  }
-
-  public loguear(){
+  loguear(){
 
     if(this.formLogin.valid){
-      this.login_auth_service.ingresarApp(this.formLogin.value).subscribe({
-        next: (userData) =>{
+      this.login_auth_service.enter_app(this.formLogin.value as LoginRequest).subscribe({
+        next: (userData) => {
           console.log(userData);
         },
-        error: (errorData) =>{
+        error: (errorData) => {
           console.error(errorData);
         },
         complete: () => {
-          console.info("Login Completo")
+          console.info("Login Complete")
         }
       });
       this.router.navigateByUrl('/doctor');  

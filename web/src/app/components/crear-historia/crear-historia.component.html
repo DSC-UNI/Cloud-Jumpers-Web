@@ -4,7 +4,7 @@
 
             <form [formGroup]="formPatient" (ngSubmit)="onSubmit()">
                 <div class="input-field col s12">
-                    <input type="number" formControlName="patient_dni" placeholder="Ingrese el DNI" id="dni">
+                    <input type="number" formControlName="patient_dni" id="dni">
 
                     <label for="dni">
                         DNI
@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="input-field col s12">
-                    <input type="date" formControlName="patient_date" placeholder="Ingrese fecha" id="date" min="1950-01-01" max="2030-12-31">
+                    <input type="date" formControlName="patient_date" id="date" min="1950-01-01" max="2030-12-31">
 
                     <label for="date">
                         Fecha
@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="input-field col s12">
-                    <textarea type="text" formControlName="patient_pathological_history" placeholder="Ingrese información" class="materialize-textarea"></textarea>
+                    <textarea type="text" formControlName="patient_pathological_history" class="materialize-textarea"></textarea>
 
                     <label>
                         Antecedentes patológicos
@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="input-field col s12">
-                    <textarea type="text" formControlName="patient_surgical_history" placeholder="Ingrese información" class="materialize-textarea"></textarea>
+                    <textarea type="text" formControlName="patient_surgical_history" class="materialize-textarea"></textarea>
 
                     <label>
                         Antecedentes Quirurgicos
@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="input-field col s12">
-                    <textarea type="text" formControlName="patient_rams" placeholder="Ingrese información" class="materialize-textarea"></textarea>
+                    <textarea type="text" formControlName="patient_rams" class="materialize-textarea"></textarea>
 
                     <label>
                         Alergia a Medicamentos
@@ -73,7 +73,7 @@
                 </div>
 
                 <div class="input-field col s12">
-                    <textarea type="text" formControlName="patient_chronological_relation" placeholder="Ingrese información" class="materialize-textarea"></textarea>
+                    <textarea type="text" formControlName="patient_chronological_relation" class="materialize-textarea"></textarea>
 
                     <label>
                         Relato Cronológico
@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="input-field col s12">
-                    <textarea type="text" formControlName="patient_plan" placeholder="Ingrese información" class="materialize-textarea"></textarea>
+                    <textarea type="text" formControlName="patient_plan" class="materialize-textarea"></textarea>
 
                     <label>
                         Decisiones

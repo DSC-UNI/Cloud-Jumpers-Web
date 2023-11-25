@@ -16,7 +16,7 @@ export class DoctorComponent implements OnInit, OnDestroy {
 
 
   }
-  ngOnDestroy(): void {
+  ngOnDestroy(): void { //  permite desengancharnos de cualquier evento u Observable al que esté vinculado el componente 
     this.loginService.currentUserData.unsubscribe();
     this.loginService.currentUserLoginOn.unsubscribe();
   }

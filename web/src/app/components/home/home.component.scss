@@ -1,0 +1,62 @@
+section{
+    display: flex;
+    flex-direction:column;
+}
+
+/* PANEL */
+.background_dsc{
+    position: relative;
+    height: auto;
+    width: auto;
+}
+
+.background_dsc img{
+    width: 100%;
+    height: auto;
+}
+
+.background-button{
+    padding: 1% 7.5%;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.background-button button{
+    width: 100%;
+    margin: 15px 0px;
+    padding: 5%;
+    background-color: royalblue;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-family: "Montserrat";
+    font-size: 18px;
+    text-align: center;
+}
+
+.background-button button:hover{
+    font-weight: bold;
+}
+/* SECCIONES */
+
+.row{
+    padding: 0% 7.5%;
+}
+
+.row h3{
+    text-align: center;
+    font-family: "Neue Montreal Bold";
+    font-size: 46px;
+    color: var(--primary-color);
+}
+
+.row .description{
+    text-align:center; 
+    padding: 1% 0%;
+    margin-top: 0%;
+}
+
+.row .description a{
+    color: royalblue;
+}

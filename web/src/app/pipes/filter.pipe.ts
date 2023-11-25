@@ -14,7 +14,7 @@ export class FilterPipe implements PipeTransform {
 
     const resultUser = value.filter((user: any) => {
       // Verificar que user.name existe y no es undefined
-      const lowerCaseName = user.dni && user.dni.toLowerCase();
+      const lowerCaseName = user.patient_dni && user.patient_dni.toLowerCase();
       return lowerCaseName && lowerCaseName.startsWith(lowerCaseArg);
     });
 
